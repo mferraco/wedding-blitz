@@ -1,3 +1,17 @@
 <resources>
+
+    <!-- APP NAME -->
     <string name="app_name">WeddingBlitz</string>
+
+    <!-- ACTIVITY LABELS -->
+    <string name="main_activity">Wedding Blitz</string>
+
+    <!-- FRAGMENT TAB TITLES -->
+    <string-array name="fragment_tab_titles">
+        <item name="summary_tab_title">Summary</item>
+        <item name="ceremony_tab_title">Ceremony</item>
+        <item name="reception_tab_title">Reception</item>
+        <item name="schedule_tab_title">Schedule</item>
+    </string-array>
+
 </resources>
