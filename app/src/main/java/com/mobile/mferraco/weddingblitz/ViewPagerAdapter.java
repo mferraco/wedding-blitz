@@ -9,7 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.mobile.mferraco.weddingblitz.constants.FragmentConstants;
 import com.mobile.mferraco.weddingblitz.infofragments.CeremonyFragment;
 import com.mobile.mferraco.weddingblitz.infofragments.ReceptionFragment;
-import com.mobile.mferraco.weddingblitz.infofragments.ScheduleFragment;
+import com.mobile.mferraco.weddingblitz.infofragments.schedule.ScheduleFragment;
 import com.mobile.mferraco.weddingblitz.infofragments.OverviewFragment;
 
 /**

@@ -27,5 +27,6 @@
     <string name="dummy_ceremony_address">1005 Hulton Rd \n Verona, PA 15147</string>
     <string name="dummy_reception_name">Historic Summit Inn Resort</string>
     <string name="dummy_reception_address">536 Shumaker Dr \n Monroeville, PA 15146</string>
+    <string name="dummy_schedule_title">Event 1</string>
 
 </resources>

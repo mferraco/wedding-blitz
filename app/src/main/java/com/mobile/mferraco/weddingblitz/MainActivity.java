@@ -7,7 +7,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 /**
- * Created by mferraco on 1/24/17.
+ * The main activity which holds the View Pager, and therefore all of the fragments that can be
+ * tabbed through
  */
 
 public class MainActivity extends AppCompatActivity {
