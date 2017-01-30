@@ -6,6 +6,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.mobile.mferraco.weddingblitz.constants.FragmentConstants;
+import com.mobile.mferraco.weddingblitz.infofragments.CeremonyFragment;
+import com.mobile.mferraco.weddingblitz.infofragments.ReceptionFragment;
+import com.mobile.mferraco.weddingblitz.infofragments.ScheduleFragment;
+import com.mobile.mferraco.weddingblitz.infofragments.OverviewFragment;
+
 /**
  * This is the adapter which will provide the fragments to the ViewPager for display.
  */
@@ -29,7 +35,19 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return SummaryFragment.newInstance(new Bundle());
+
+        switch (position) {
+            case FragmentConstants.OVERVIEW_FRAGMENT:
+                return OverviewFragment.newInstance(new Bundle());
+            case FragmentConstants.CEREMONY_FRAGMENT:
+                return CeremonyFragment.newInstance(new Bundle());
+            case FragmentConstants.RECEPTION_FRAGMENT:
+                return ReceptionFragment.newInstance(new Bundle());
+            case FragmentConstants.SCHEDULE_FRAGMENT:
+                return ScheduleFragment.newInstance(new Bundle());
+            default:
+                return OverviewFragment.newInstance(new Bundle());
+        }
     }
 
     @Override

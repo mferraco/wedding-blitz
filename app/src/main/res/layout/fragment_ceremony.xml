@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/ceremony_image"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/profile_image_height"
+        android:scaleType="centerCrop"
+        android:src="@drawable/whyel_chapel" />
+
+    <TextView
+        android:id="@+id/ceremony_name_textview"
+        style="@style/Heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/dummy_ceremony_name" />
+
+    <TextView
+        android:id="@+id/ceremony_address_textview"
+        style="@style/SubHeading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/dummy_ceremony_address" />
+
+</LinearLayout>

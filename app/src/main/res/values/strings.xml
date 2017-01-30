@@ -8,10 +8,24 @@
 
     <!-- FRAGMENT TAB TITLES -->
     <string-array name="fragment_tab_titles">
-        <item name="summary_tab_title">Summary</item>
+        <item name="overview_tab_title">Overview</item>
         <item name="ceremony_tab_title">Ceremony</item>
         <item name="reception_tab_title">Reception</item>
         <item name="schedule_tab_title">Schedule</item>
     </string-array>
+
+
+
+
+
+
+    <!-- Dummy Data -->
+    <string name="dummy_names">Carly and Mike</string>
+    <string name="dummy_countdown">100 Days to Go!</string>
+    <string name="dummy_location">Historic Summit Inn and Whyel Chapel</string>
+    <string name="dummy_ceremony_name">Whyel Chapel</string>
+    <string name="dummy_ceremony_address">1005 Hulton Rd \n Verona, PA 15147</string>
+    <string name="dummy_reception_name">Historic Summit Inn Resort</string>
+    <string name="dummy_reception_address">536 Shumaker Dr \n Monroeville, PA 15146</string>
 
 </resources>

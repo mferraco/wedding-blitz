@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- App-Wide Values -->
+    <dimen name="heading_text_size">32dp</dimen>
+    <dimen name="subheading_text_size">24dp</dimen>
+    <dimen name="paragraph_text_size">16dp</dimen>
+
+    <!-- Overivew Fragment -->
+    <dimen name="profile_image_height">200dp</dimen>
+    <dimen name="profile_image_padding">16dp</dimen>
+
+</resources>
