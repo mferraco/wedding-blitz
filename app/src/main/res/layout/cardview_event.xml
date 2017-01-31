@@ -4,8 +4,12 @@
     android:id="@+id/event_cardview"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/event_cardview_margin"
-
+    android:layout_marginBottom="@dimen/event_cardview_margin"
+    android:layout_marginEnd="@dimen/event_cardview_margin_sides"
+    android:layout_marginLeft="@dimen/event_cardview_margin_sides"
+    android:layout_marginRight="@dimen/event_cardview_margin_sides"
+    android:layout_marginStart="@dimen/event_cardview_margin_sides"
+    android:layout_marginTop="@dimen/event_cardview_margin"
     app:cardCornerRadius="@dimen/event_cardview_corner_radius">
 
     <RelativeLayout
@@ -17,7 +21,7 @@
         <!-- TITLE -->
         <TextView
             android:id="@+id/event_title_textview"
-            style="@style/Heading"
+            style="@style/SubHeading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -41,6 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/event_title_textview"
             android:text="@string/dummy_time" />
 
     </RelativeLayout>

@@ -12,8 +12,9 @@
 
     <!-- Event Card View -->
     <dimen name="event_cardview_corner_radius">8dp</dimen>
-    <dimen name="event_cardview_padding">16dp</dimen>
-    <dimen name="event_cardview_margin">16dp</dimen>
+    <dimen name="event_cardview_padding">8dp</dimen>
+    <dimen name="event_cardview_margin">4dp</dimen>
+    <dimen name="event_cardview_margin_sides">8dp</dimen>
     <dimen name="event_cardview_description_margintop">4dp</dimen>
 
 </resources>
