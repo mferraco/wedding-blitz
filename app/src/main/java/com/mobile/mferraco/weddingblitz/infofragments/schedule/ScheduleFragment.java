@@ -13,6 +13,8 @@ import com.mobile.mferraco.weddingblitz.R;
 import com.mobile.mferraco.weddingblitz.models.Event;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
@@ -45,10 +47,12 @@ public class ScheduleFragment extends Fragment {
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(llm);
 
+        Date startTime1 = new GregorianCalendar(2017, 0, 30, 10, 30).getTime();
+
         List<Event> events = new ArrayList<>();
-        Event event1 = new Event("MIKE");
-        Event event2 = new Event("CARLY");
-        Event event3 = new Event("NICOLE");
+        Event event1 = new Event("MIKE", startTime1, startTime1, "TEST", 1);
+        Event event2 = new Event("CARLY", startTime1, startTime1, "TEST", 1);
+        Event event3 = new Event("NICOLE", startTime1, startTime1, "TEST", 1);
         events.add(event1);
         events.add(event2);
         events.add(event3);
