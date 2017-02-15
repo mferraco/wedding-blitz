@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/profile_image_height"
         android:scaleType="centerCrop"
-        android:src="@drawable/wedding_image" />
+        android:background="@android:color/holo_blue_bright" />
 
     <TextView
         android:id="@+id/names_textview"

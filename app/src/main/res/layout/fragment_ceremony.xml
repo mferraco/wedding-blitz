@@ -4,27 +4,34 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2">
+
     <ImageView
         android:id="@+id/ceremony_image"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/profile_image_height"
+        android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/whyel_chapel" />
+        android:background="@android:color/holo_blue_bright"/>
 
     <TextView
         android:id="@+id/ceremony_name_textview"
         style="@style/Heading"
+        android:padding="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
+        android:layout_alignBottom="@id/ceremony_image"
         android:text="@string/dummy_ceremony_name" />
 
-    <TextView
-        android:id="@+id/ceremony_address_textview"
-        style="@style/SubHeading"
+    </RelativeLayout>
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/ceremony_google_map"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="@string/dummy_ceremony_address" />
+        android:layout_height="0dp"
+        android:layout_weight="3"/>
 
 </LinearLayout>
