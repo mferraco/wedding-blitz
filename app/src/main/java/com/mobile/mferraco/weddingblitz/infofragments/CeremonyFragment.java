@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.mobile.mferraco.weddingblitz.R;
+import com.mobile.mferraco.weddingblitz.models.Wedding;
 
 /**
  * This fragment will display details about the ceremony.
@@ -59,9 +60,8 @@ public class CeremonyFragment extends Fragment implements OnMapReadyCallback {
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                //Wedding wedding = dataSnapshot.getValue(Wedding.class);
-                //System.out.println(wedding.getCeremonyImageUrl());
-                // TODO: Create Wedding object
+                Wedding wedding = dataSnapshot.getValue(Wedding.class);
+                System.out.println(wedding.getCeremonyImageUrl());
             }
 
             @Override
@@ -83,7 +83,7 @@ public class CeremonyFragment extends Fragment implements OnMapReadyCallback {
         // Zoom in, animating the camera.
         map.animateCamera(CameraUpdateFactory.zoomIn());
         // Zoom out to zoom level 10, animating with a duration of 2 seconds.
-        map.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
+        map.animateCamera(CameraUpdateFactory.zoomTo(15), 1000, null);
     }
 
     /* ========== LifeCycle Methods ========== */

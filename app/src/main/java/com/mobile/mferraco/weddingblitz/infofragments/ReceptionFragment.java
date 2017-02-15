@@ -54,7 +54,7 @@ public class ReceptionFragment extends Fragment implements OnMapReadyCallback {
         // Zoom in, animating the camera.
         map.animateCamera(CameraUpdateFactory.zoomIn());
         // Zoom out to zoom level 10, animating with a duration of 2 seconds.
-        map.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
+        map.animateCamera(CameraUpdateFactory.zoomTo(15), 1000, null);
     }
 
     /* ========== LifeCycle Methods ========== */
