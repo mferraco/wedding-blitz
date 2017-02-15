@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -14,7 +16,14 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.mobile.mferraco.weddingblitz.R;
+import com.mobile.mferraco.weddingblitz.models.Wedding;
+import com.squareup.picasso.Picasso;
 
 /**
  * This fragment will display details about the reception.
@@ -23,6 +32,8 @@ import com.mobile.mferraco.weddingblitz.R;
 public class ReceptionFragment extends Fragment implements OnMapReadyCallback {
 
     private MapView mMapView;
+    private ImageView mImageView;
+    private TextView mTitleTextView;
 
     public static ReceptionFragment newInstance(Bundle args) {
         ReceptionFragment fragment = new ReceptionFragment();
@@ -39,7 +50,34 @@ public class ReceptionFragment extends Fragment implements OnMapReadyCallback {
         mMapView.onCreate(savedInstanceState);
         mMapView.getMapAsync(this);
 
+        mImageView = (ImageView) view.findViewById(R.id.reception_image);
+        mTitleTextView = (TextView) view.findViewById(R.id.reception_name_textview);
+
         return view;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // Get a reference to the wedding
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("weddings/1");
+
+        // Attach a listener to read the data at the wedding reference
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Wedding wedding = dataSnapshot.getValue(Wedding.class);
+                Picasso.with(getContext()).load(wedding.getReceptionImageUrl()).into(mImageView);
+                mTitleTextView.setText(wedding.getReceptionName());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
     }
 
     /* ========== Google Maps ========== */

@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -21,6 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.mobile.mferraco.weddingblitz.R;
 import com.mobile.mferraco.weddingblitz.models.Wedding;
+import com.squareup.picasso.Picasso;
 
 /**
  * This fragment will display details about the ceremony.
@@ -29,6 +32,8 @@ import com.mobile.mferraco.weddingblitz.models.Wedding;
 public class CeremonyFragment extends Fragment implements OnMapReadyCallback {
 
     private MapView mMapView;
+    private ImageView mImageView;
+    private TextView mTitleTextView;
 
     public static CeremonyFragment newInstance(Bundle args) {
         CeremonyFragment fragment = new CeremonyFragment();
@@ -44,6 +49,9 @@ public class CeremonyFragment extends Fragment implements OnMapReadyCallback {
         mMapView = (MapView) view.findViewById(R.id.ceremony_google_map);
         mMapView.onCreate(savedInstanceState);
         mMapView.getMapAsync(this);
+
+        mImageView = (ImageView) view.findViewById(R.id.ceremony_image);
+        mTitleTextView = (TextView) view.findViewById(R.id.ceremony_name_textview);
 
         return view;
     }
@@ -61,7 +69,8 @@ public class CeremonyFragment extends Fragment implements OnMapReadyCallback {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Wedding wedding = dataSnapshot.getValue(Wedding.class);
-                System.out.println(wedding.getCeremonyImageUrl());
+                Picasso.with(getContext()).load(wedding.getCeremonyImageUrl()).into(mImageView);
+                mTitleTextView.setText(wedding.getCeremonyName());
             }
 
             @Override
