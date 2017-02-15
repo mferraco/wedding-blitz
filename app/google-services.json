@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "385122531083",
+    "firebase_url": "https://weddingblitz-157fb.firebaseio.com",
+    "project_id": "weddingblitz-157fb",
+    "storage_bucket": "weddingblitz-157fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:385122531083:android:8ee17a160079763e",
+        "android_client_info": {
+          "package_name": "com.mobile.mferraco.weddingblitz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "385122531083-83ot0raa31tcqu2og5h7aho1l0s9kq1j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mobile.mferraco.weddingblitz",
+            "certificate_hash": "2AE6C58616099FE610105AD0640D4CCDAFBF9AF4"
+          }
+        },
+        {
+          "client_id": "385122531083-kcj5mgcdqitliubed40vfejpqket4h1h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCicPycoiHOa7X1qUm5A_0EzE1UdGQdJEU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "385122531083-kcj5mgcdqitliubed40vfejpqket4h1h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
