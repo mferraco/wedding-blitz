@@ -34,6 +34,8 @@ public class CeremonyFragment extends Fragment implements OnMapReadyCallback {
     private MapView mMapView;
     private ImageView mImageView;
     private TextView mTitleTextView;
+    private Marker mMarker;
+    private String mMarkerTitle = "";
 
     public static CeremonyFragment newInstance(Bundle args) {
         CeremonyFragment fragment = new CeremonyFragment();
@@ -70,7 +72,9 @@ public class CeremonyFragment extends Fragment implements OnMapReadyCallback {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Wedding wedding = dataSnapshot.getValue(Wedding.class);
                 Picasso.with(getContext()).load(wedding.getCeremonyImageUrl()).into(mImageView);
-                mTitleTextView.setText(wedding.getCeremonyName());
+                mMarkerTitle = wedding.getCeremonyName();
+                setMarkerTitle(mMarkerTitle);
+                mTitleTextView.setText(mMarkerTitle);
             }
 
             @Override
@@ -80,15 +84,21 @@ public class CeremonyFragment extends Fragment implements OnMapReadyCallback {
         });
     }
 
+    private void setMarkerTitle(String title) {
+        if (mMarker != null) {
+            mMarker.setTitle(title);
+        }
+    }
+
     /* ========== Google Maps ========== */
 
     @Override
     public void onMapReady(GoogleMap map) {
-        Marker marker = map.addMarker(new MarkerOptions()
+        mMarker = map.addMarker(new MarkerOptions()
                 .position(new LatLng(39.8858, -79.6484))
-                .title("Marker"));
+                .title(mMarkerTitle));
 
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(marker.getPosition(), 15));
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(mMarker.getPosition(), 15));
         // Zoom in, animating the camera.
         map.animateCamera(CameraUpdateFactory.zoomIn());
         // Zoom out to zoom level 10, animating with a duration of 2 seconds.
