@@ -17,6 +17,7 @@ public class Wedding {
     private String mOverviewImageUrl;
     private String mBride;
     private String mGroom;
+    private String mWeddingDate;
 
     public Wedding() {
         // do nothing, required for Firebase
@@ -108,5 +109,13 @@ public class Wedding {
 
     public void setGroom(String groom) {
         this.mGroom = groom;
+    }
+
+    public String getWeddingDate() {
+        return mWeddingDate;
+    }
+
+    public void setWeddingDate(String weddingDate) {
+        this.mWeddingDate = weddingDate;
     }
 }

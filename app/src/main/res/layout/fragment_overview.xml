@@ -20,12 +20,18 @@
         android:gravity="center_horizontal" />
 
     <TextView
+        android:id="@+id/wedding_date_textview"
+        style="@style/SubHeading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" />
+
+    <TextView
         android:id="@+id/countdown_textview"
         style="@style/SubHeading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="@string/dummy_countdown" />
+        android:gravity="center_horizontal" />
 
     <TextView
         android:id="@+id/location_textview"

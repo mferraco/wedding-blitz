@@ -14,9 +14,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.mobile.mferraco.weddingblitz.R;
+import com.mobile.mferraco.weddingblitz.WeddingDateUtils;
 import com.mobile.mferraco.weddingblitz.models.Wedding;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
+
+import java.util.Date;
 
 /**
  * This fragment will hold all of the overview information for the app.
@@ -28,9 +31,13 @@ import com.squareup.picasso.Picasso;
 
 public class OverviewFragment extends DataLoadingFragment {
 
+    private static final String TAG = OverviewFragment.class.getSimpleName();
+
     private ImageView mImageView;
     private TextView mNamesTextView;
     private TextView mLocationTextView;
+    private TextView mCountdownTextView;
+    private TextView mWeddingDateTextView;
 
     public static OverviewFragment newInstance(Bundle args) {
         OverviewFragment fragment = new OverviewFragment();
@@ -49,6 +56,8 @@ public class OverviewFragment extends DataLoadingFragment {
         mImageView = (ImageView) view.findViewById(R.id.overview_image);
         mNamesTextView = (TextView) view.findViewById(R.id.names_textview);
         mLocationTextView = (TextView) view.findViewById(R.id.location_textview);
+        mCountdownTextView = (TextView) view.findViewById(R.id.countdown_textview);
+        mWeddingDateTextView = (TextView) view.findViewById(R.id.wedding_date_textview);
 
         return view;
     }
@@ -77,8 +86,25 @@ public class OverviewFragment extends DataLoadingFragment {
                         fragmentLoadComplete();
                     }
                 });
-                mNamesTextView.setText(getString(R.string.two_data_point_string, wedding.getBride(), wedding.getGroom()));
-                mLocationTextView.setText(getString(R.string.two_data_point_string, wedding.getCeremonyName(), wedding.getReceptionName()));
+                mNamesTextView.setText(getString(R.string.two_data_point_string,
+                        wedding.getBride(), wedding.getGroom()));
+                mLocationTextView.setText(getString(R.string.two_data_point_string,
+                        wedding.getCeremonyName(), wedding.getReceptionName()));
+
+                String weddingDateString = wedding.getWeddingDate();
+
+                // get the String format of the wedding date (Ex. July 8, 2017)
+                String formattedDateString =
+                        WeddingDateUtils.getFormattedDateString(weddingDateString);
+
+                // count the number of days until the wedding
+                Date weddingDate = WeddingDateUtils.parseDateFromString(weddingDateString);
+                String countdownString = getString(R.string.countdown_text,
+                        String.valueOf(WeddingDateUtils.getNumDaysUntilDate(weddingDate)));
+
+                // set the date values on the text views
+                mCountdownTextView.setText(countdownString);
+                mWeddingDateTextView.setText(formattedDateString);
             }
 
             @Override
