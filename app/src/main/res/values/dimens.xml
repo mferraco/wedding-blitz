@@ -6,7 +6,11 @@
     <dimen name="subheading_text_size">24dp</dimen>
     <dimen name="paragraph_text_size">16dp</dimen>
 
-    <!-- Overivew Fragment -->
+    <dimen name="fab_margin">24dp</dimen>
+    <dimen name="fab_elevation">6dp</dimen>
+    <dimen name="fab_press_translation_z">6dp</dimen>
+
+    <!-- Overview Fragment -->
     <dimen name="profile_image_height">200dp</dimen>
     <dimen name="profile_image_padding">16dp</dimen>
 
@@ -16,5 +20,4 @@
     <dimen name="event_cardview_margin">4dp</dimen>
     <dimen name="event_cardview_margin_sides">8dp</dimen>
     <dimen name="event_cardview_description_margintop">4dp</dimen>
-
 </resources>

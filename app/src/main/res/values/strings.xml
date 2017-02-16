@@ -19,6 +19,9 @@
     <string name="two_data_point_string">%1$s and %2$s</string>
     <string name="countdown_text">%1$s Days!</string>
 
+    <!-- Ceremony Fragment -->
+    <string name="fab_content_description">Get directions.</string>
+
 
     <!-- Dummy Data -->
     <string name="dummy_schedule_title">Event 1</string>

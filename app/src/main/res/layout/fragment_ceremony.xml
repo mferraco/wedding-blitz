@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -9,33 +10,53 @@
         android:layout_height="0dp"
         android:layout_weight="2">
 
-    <ImageView
-        android:id="@+id/ceremony_image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:background="@android:color/holo_blue_bright"/>
+        <ImageView
+            android:id="@+id/ceremony_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/holo_blue_bright"
+            android:scaleType="centerCrop" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/image_scrim" />
 
-    <TextView
-        android:id="@+id/ceremony_name_textview"
-        style="@style/Heading.Light"
-        android:padding="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:layout_alignBottom="@id/ceremony_image" />
+        <TextView
+            android:id="@+id/ceremony_name_textview"
+            style="@style/Heading.Light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/ceremony_image"
+            android:gravity="center_horizontal"
+            android:padding="20dp" />
 
     </RelativeLayout>
 
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/ceremony_google_map"
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3"/>
+        android:layout_weight="3">
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/ceremony_google_map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/ceremony_navigation_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            android:clickable="true"
+            android:contentDescription="@string/fab_content_description"
+            android:elevation="@dimen/fab_elevation"
+            android:src="@drawable/navigation"
+            android:tint="@android:color/white"
+            app:fabSize="normal"
+            app:pressedTranslationZ="@dimen/fab_press_translation_z" />
+
+    </android.support.design.widget.CoordinatorLayout>
 
 </LinearLayout>

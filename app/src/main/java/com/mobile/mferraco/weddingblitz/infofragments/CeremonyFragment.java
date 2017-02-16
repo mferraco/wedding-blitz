@@ -1,7 +1,10 @@
 package com.mobile.mferraco.weddingblitz.infofragments;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +40,7 @@ public class CeremonyFragment extends DataLoadingFragment implements OnMapReadyC
     private Marker mMarker;
     private Wedding mWedding;
     private GoogleMap mMap;
+    private FloatingActionButton mNavigationFab;
 
     public static CeremonyFragment newInstance(Bundle args) {
         CeremonyFragment fragment = new CeremonyFragment();
@@ -58,6 +62,8 @@ public class CeremonyFragment extends DataLoadingFragment implements OnMapReadyC
 
         mImageView = (ImageView) view.findViewById(R.id.ceremony_image);
         mTitleTextView = (TextView) view.findViewById(R.id.ceremony_name_textview);
+
+        mNavigationFab = (FloatingActionButton) view.findViewById(R.id.ceremony_navigation_fab);
 
         return view;
     }
@@ -88,6 +94,18 @@ public class CeremonyFragment extends DataLoadingFragment implements OnMapReadyC
                 });
                 setMarkerDetails();
                 mTitleTextView.setText(mWedding.getCeremonyName());
+
+                mNavigationFab.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // open Google Maps navigation to location
+                        Uri gmmIntentUri = Uri.parse("google.navigation:q=" +
+                                mWedding.getCeremonyLat() + "," + mWedding.getCeremonyLng());
+                        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                        mapIntent.setPackage("com.google.android.apps.maps");
+                        startActivity(mapIntent);
+                    }
+                });
             }
 
             @Override
