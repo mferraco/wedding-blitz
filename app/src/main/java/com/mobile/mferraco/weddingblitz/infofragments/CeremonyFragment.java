@@ -2,7 +2,6 @@ package com.mobile.mferraco.weddingblitz.infofragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,13 +22,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.mobile.mferraco.weddingblitz.R;
 import com.mobile.mferraco.weddingblitz.models.Wedding;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 /**
  * This fragment will display details about the ceremony.
  */
 
-public class CeremonyFragment extends Fragment implements OnMapReadyCallback {
+public class CeremonyFragment extends DataLoadingFragment implements OnMapReadyCallback {
 
     private MapView mMapView;
     private ImageView mImageView;
@@ -47,7 +47,10 @@ public class CeremonyFragment extends Fragment implements OnMapReadyCallback {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_ceremony, container, false);
+        View view = super.onCreateView(inflater, container, savedInstanceState);
+
+        // inflate content into DataLoadingFragment's content layout
+        getActivity().getLayoutInflater().inflate(R.layout.fragment_ceremony, getContentLayout());
 
         mMapView = (MapView) view.findViewById(R.id.ceremony_google_map);
         mMapView.onCreate(savedInstanceState);
@@ -65,14 +68,24 @@ public class CeremonyFragment extends Fragment implements OnMapReadyCallback {
 
         // Get a reference to the wedding
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("weddings/1");
+        DatabaseReference ref = database.getReference("weddings/0");
 
         // Attach a listener to read the data at the wedding reference
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 mWedding = dataSnapshot.getValue(Wedding.class);
-                Picasso.with(getContext()).load(mWedding.getCeremonyImageUrl()).into(mImageView);
+                Picasso.with(getContext()).load(mWedding.getCeremonyImageUrl()).into(mImageView, new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        fragmentLoadComplete();
+                    }
+
+                    @Override
+                    public void onError() {
+                        fragmentLoadComplete();
+                    }
+                });
                 setMarkerDetails();
                 mTitleTextView.setText(mWedding.getCeremonyName());
             }

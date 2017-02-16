@@ -15,6 +15,8 @@ public class Wedding {
     private float mReceptionLng;
     private String mReceptionImageUrl;
     private String mOverviewImageUrl;
+    private String mBride;
+    private String mGroom;
 
     public Wedding() {
         // do nothing, required for Firebase
@@ -90,5 +92,21 @@ public class Wedding {
 
     public void setOverviewImageUrl(String overviewImageUrl) {
         this.mOverviewImageUrl = overviewImageUrl;
+    }
+
+    public String getBride() {
+        return mBride;
+    }
+
+    public void setBride(String bride) {
+        this.mBride = bride;
+    }
+
+    public String getGroom() {
+        return mGroom;
+    }
+
+    public void setGroom(String groom) {
+        this.mGroom = groom;
     }
 }

@@ -15,14 +15,12 @@
     </string-array>
 
 
-
-
+    <!-- OVERVIEW FRAGMENT -->
+    <string name="two_data_point_string">%1$s and %2$s</string>
 
 
     <!-- Dummy Data -->
-    <string name="dummy_names">Carly and Mike</string>
     <string name="dummy_countdown">100 Days to Go!</string>
-    <string name="dummy_location">Historic Summit Inn and Whyel Chapel</string>
     <string name="dummy_schedule_title">Event 1</string>
     <string name="dummy_time">10:00am - 12:00pm</string>
     <string name="dummy_description">Best event ever!!</string>
