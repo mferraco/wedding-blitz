@@ -1,7 +1,5 @@
 package com.mobile.mferraco.weddingblitz.models;
 
-import java.util.Date;
-
 /**
  * Represents an event object.  Events make up each of the items in the schedule.
  */
@@ -10,20 +8,14 @@ public class Event {
 
     private String mTitle;
 
-    private Date mStartTime;
+    private String mStartTime;
 
-    private Date mEndTime;
+    private String mEndTime;
 
     private String mDescription;
 
-    private int mWeddingId;
-
-    public Event(String mTitle, Date mStartTime, Date mEndTime, String mDescription, int weddingId) {
-        this.mTitle = mTitle;
-        this.mStartTime = mStartTime;
-        this.mEndTime = mEndTime;
-        this.mDescription = mDescription;
-        this.mWeddingId = weddingId;
+    public Event() {
+        // do nothing, required for Firebase
     }
 
     public String getTitle() {
@@ -34,19 +26,19 @@ public class Event {
         mTitle = title;
     }
 
-    public Date getStartTime() {
+    public String getStartTime() {
         return mStartTime;
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(String startTime) {
         this.mStartTime = startTime;
     }
 
-    public Date getEndTime() {
+    public String getEndTime() {
         return mEndTime;
     }
 
-    public void setEndTime(Date endTime) {
+    public void setEndTime(String endTime) {
         this.mEndTime = endTime;
     }
 
@@ -56,13 +48,5 @@ public class Event {
 
     public void setDescription(String description) {
         this.mDescription = description;
-    }
-
-    public int getWeddingId() {
-        return mWeddingId;
-    }
-
-    public void setWeddingId(int weddingId) {
-        this.mWeddingId = weddingId;
     }
 }

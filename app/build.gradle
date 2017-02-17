@@ -33,7 +33,9 @@ dependencies {
 
     // Firebase Database - data storage
     compile 'com.google.firebase:firebase-database:10.0.1'
+    compile 'com.firebaseui:firebase-ui-database:1.1.1'
 
+    // Google Maps - loading maps for ceremony and reception location
     compile 'com.google.android.gms:play-services-maps:10.0.1'
 
     // Picasso - image loading

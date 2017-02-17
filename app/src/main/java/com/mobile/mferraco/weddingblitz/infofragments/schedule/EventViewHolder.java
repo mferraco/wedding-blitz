@@ -12,13 +12,30 @@ import com.mobile.mferraco.weddingblitz.R;
 
 public class EventViewHolder extends RecyclerView.ViewHolder {
 
-    protected TextView vTitle;
+    private TextView vTitle;
+    private TextView vDescription;
+    private TextView vTime;
+
 
     public EventViewHolder(View v) {
         super(v);
 
         // set variables for view components
         vTitle = (TextView) v.findViewById(R.id.event_title_textview);
+        vDescription = (TextView) v.findViewById(R.id.event_description_textview);
+        vTime = (TextView) v.findViewById(R.id.event_time_textview);
+    }
+
+    public void setTitle(String title) {
+        vTitle.setText(title);
+    }
+
+    public void setDescription(String description) {
+        vDescription.setText(description);
+    }
+
+    public void setTime(String time) {
+        vTime.setText(time);
     }
 
 

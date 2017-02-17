@@ -9,13 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.mobile.mferraco.weddingblitz.R;
 import com.mobile.mferraco.weddingblitz.models.Event;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
 
 /**
  * This fragment will display the schedule of events.
@@ -47,16 +44,9 @@ public class ScheduleFragment extends Fragment {
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(llm);
 
-        Date startTime1 = new GregorianCalendar(2017, 0, 30, 10, 30).getTime();
-
-        List<Event> events = new ArrayList<>();
-        Event event1 = new Event("MIKE", startTime1, startTime1, "TEST", 1);
-        Event event2 = new Event("CARLY", startTime1, startTime1, "TEST", 1);
-        Event event3 = new Event("NICOLE", startTime1, startTime1, "TEST", 1);
-        events.add(event1);
-        events.add(event2);
-        events.add(event3);
-        recyclerView.setAdapter(new ScheduleAdapter(events));
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("weddings/0/schedule");
+        recyclerView.setAdapter(new ScheduleAdapter(Event.class, R.layout.cardview_event, EventViewHolder.class, ref));
 
     }
 }

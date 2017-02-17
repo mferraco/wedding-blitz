@@ -1,44 +1,22 @@
 package com.mobile.mferraco.weddingblitz.infofragments.schedule;
 
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import com.mobile.mferraco.weddingblitz.R;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.DatabaseReference;
 import com.mobile.mferraco.weddingblitz.models.Event;
-
-import java.util.List;
 
 /**
  * This RecyclerView implementation sets up the schedule of events for the {@link ScheduleFragment}
  */
 
-public class ScheduleAdapter extends RecyclerView.Adapter<EventViewHolder> {
+public class ScheduleAdapter extends FirebaseRecyclerAdapter<Event, EventViewHolder> {
 
-    List<Event> mEvents;
-
-    public ScheduleAdapter(List<Event> events) {
-        mEvents = events;
+    public ScheduleAdapter(Class<Event> modelClass, int modelLayout, Class<EventViewHolder> viewHolderClass, DatabaseReference ref) {
+        super(modelClass, modelLayout, viewHolderClass, ref);
     }
 
     @Override
-    public int getItemCount() {
-        return mEvents.size();
-    }
-
-    @Override
-    public void onBindViewHolder(EventViewHolder holder, int position) {
-        Event event = mEvents.get(position);
-        holder.vTitle.setText(event.getTitle());
-    }
-
-    @Override
-    public EventViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View eventView = LayoutInflater.
-                from(parent.getContext()).
-                inflate(R.layout.cardview_event, parent, false);
-
-        return new EventViewHolder(eventView);
+    protected void populateViewHolder(EventViewHolder vh, Event event, int position) {
+        vh.setTitle(event.getTitle());
+        vh.setDescription(event.getDescription());
     }
 }
