@@ -35,7 +35,6 @@ public class OverviewFragment extends DataLoadingFragment {
 
     private ImageView mImageView;
     private TextView mNamesTextView;
-    private TextView mLocationTextView;
     private TextView mCountdownTextView;
     private TextView mWeddingDateTextView;
 
@@ -55,7 +54,6 @@ public class OverviewFragment extends DataLoadingFragment {
 
         mImageView = (ImageView) view.findViewById(R.id.overview_image);
         mNamesTextView = (TextView) view.findViewById(R.id.names_textview);
-        mLocationTextView = (TextView) view.findViewById(R.id.location_textview);
         mCountdownTextView = (TextView) view.findViewById(R.id.countdown_textview);
         mWeddingDateTextView = (TextView) view.findViewById(R.id.wedding_date_textview);
 
@@ -88,8 +86,6 @@ public class OverviewFragment extends DataLoadingFragment {
                 });
                 mNamesTextView.setText(getString(R.string.two_data_point_string,
                         wedding.getBride(), wedding.getGroom()));
-                mLocationTextView.setText(getString(R.string.two_data_point_string,
-                        wedding.getCeremonyName(), wedding.getReceptionName()));
 
                 String weddingDateString = wedding.getWeddingDate();
 

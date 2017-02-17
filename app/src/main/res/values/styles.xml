@@ -21,8 +21,24 @@
         <item name="android:textSize">@dimen/subheading_text_size</item>
     </style>
 
+    <style name="SubHeading.Light">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
     <style name="Paragraph">
         <item name="android:textSize">@dimen/paragraph_text_size</item>
+    </style>
+
+    <style name="Paragraph.Light">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="Big">
+        <item name="android:textSize">@dimen/big_text_size</item>
+    </style>
+
+    <style name="Big.Light">
+        <item name="android:textColor">@android:color/white</item>
     </style>
 
 </resources>

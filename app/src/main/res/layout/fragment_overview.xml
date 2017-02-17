@@ -17,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
+        android:paddingTop="@dimen/profile_padding_top"
         android:orientation="vertical">
 
         <TextView
@@ -35,14 +36,8 @@
 
         <TextView
             android:id="@+id/countdown_textview"
-            style="@style/SubHeading"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal" />
-
-        <TextView
-            android:id="@+id/location_textview"
-            style="@style/Paragraph"
+            style="@style/Big"
+            android:paddingTop="@dimen/profile_padding_top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal" />

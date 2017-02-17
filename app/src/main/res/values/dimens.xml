@@ -5,6 +5,7 @@
     <dimen name="heading_text_size">32dp</dimen>
     <dimen name="subheading_text_size">24dp</dimen>
     <dimen name="paragraph_text_size">16dp</dimen>
+    <dimen name="big_text_size">48dp</dimen>
 
     <dimen name="fab_margin">24dp</dimen>
     <dimen name="fab_elevation">6dp</dimen>
@@ -13,6 +14,7 @@
     <!-- Overview Fragment -->
     <dimen name="profile_image_height">200dp</dimen>
     <dimen name="profile_image_padding">16dp</dimen>
+    <dimen name="profile_padding_top">24dp</dimen>
 
     <!-- Event Card View -->
     <dimen name="event_cardview_corner_radius">8dp</dimen>
