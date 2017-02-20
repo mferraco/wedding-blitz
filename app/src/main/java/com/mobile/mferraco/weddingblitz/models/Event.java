@@ -6,6 +6,11 @@ package com.mobile.mferraco.weddingblitz.models;
 
 public class Event {
 
+    // Types of events
+    public static final String FOOD = "food";
+    public static final String CEREMONY = "ceremony";
+    public static final String RECEPTION = "reception";
+
     private String mTitle;
 
     private String mStartTime;
@@ -13,6 +18,8 @@ public class Event {
     private String mEndTime;
 
     private String mDescription;
+
+    private String mType;
 
     public Event() {
         // do nothing, required for Firebase
@@ -48,5 +55,13 @@ public class Event {
 
     public void setDescription(String description) {
         this.mDescription = description;
+    }
+
+    public String getType() {
+        return mType;
+    }
+
+    public void setType(String type) {
+        mType = type;
     }
 }

@@ -1,6 +1,7 @@
 package com.mobile.mferraco.weddingblitz.infofragments.schedule;
 
 import android.content.Context;
+import android.support.annotation.DrawableRes;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
@@ -38,6 +39,22 @@ public class ScheduleAdapter extends FirebaseRecyclerAdapter<Event, EventViewHol
             currentWordDay = wordDay;
             vh.setDay(currentWordDay);
             vh.setDayOfMonth(WeddingDateUtils.getDayOfMonthFromDate(event.getStartTime()));
+        }
+
+        vh.setTypeIcon(getIconForType(event));
+    }
+
+    @DrawableRes
+    private int getIconForType(Event event) {
+
+        switch (event.getType()) {
+            case Event.FOOD:
+                return R.drawable.food;
+            case Event.CEREMONY:
+                return R.drawable.church;
+            case Event.RECEPTION:
+            default:
+                return R.drawable.reception;
         }
     }
 }
