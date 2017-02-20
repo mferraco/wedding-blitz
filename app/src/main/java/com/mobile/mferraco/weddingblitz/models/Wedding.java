@@ -1,5 +1,7 @@
 package com.mobile.mferraco.weddingblitz.models;
 
+import java.util.List;
+
 /**
  * An object which holds all the data for a single wedding.
  */
@@ -18,6 +20,7 @@ public class Wedding {
     private String mBride;
     private String mGroom;
     private String mWeddingDate;
+    private List<Event> mSchedule;
 
     public Wedding() {
         // do nothing, required for Firebase
@@ -117,5 +120,13 @@ public class Wedding {
 
     public void setWeddingDate(String weddingDate) {
         this.mWeddingDate = weddingDate;
+    }
+
+    public List<Event> getSchedule() {
+        return mSchedule;
+    }
+
+    public void setSchedule(List<Event> schedule) {
+        mSchedule = schedule;
     }
 }

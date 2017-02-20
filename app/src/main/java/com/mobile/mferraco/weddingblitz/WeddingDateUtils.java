@@ -2,7 +2,6 @@ package com.mobile.mferraco.weddingblitz;
 
 import android.util.Log;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -18,8 +17,14 @@ public final class WeddingDateUtils {
 
     private static final String TAG = WeddingDateUtils.class.getSimpleName();
 
-    private static final DateFormat firebaseDateFormat = new SimpleDateFormat("MM/dd/yyyy kk:mm a, z", Locale.US);
+    /* The format of the date stored in Firebase */
+    private static final SimpleDateFormat firebaseDateFormat = new SimpleDateFormat("MM/dd/yyyy h:mm a", Locale.US);
+
+    /* The format to display dates in the app */
     private static final SimpleDateFormat stringDateFormat = new SimpleDateFormat("MMMM d, yyyy", Locale.US);
+
+    /* The format to display times in the app */
+    private static final SimpleDateFormat timeDateFormat = new SimpleDateFormat("h:mm a", Locale.US);
 
     /**
      * The number of days from today until the date passed in.
@@ -57,6 +62,9 @@ public final class WeddingDateUtils {
      */
     public static String getFormattedDateString(String dateString) {
         return stringDateFormat.format(parseDateFromString(dateString));
+    }
 
+    public static String getFormattedTimeString(String dateString) {
+        return timeDateFormat.format(parseDateFromString(dateString));
     }
 }
