@@ -13,6 +13,13 @@ import android.support.v7.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
+    private int[] tabIcons = {
+            R.drawable.overview,
+            R.drawable.church,
+            R.drawable.reception,
+            R.drawable.schedule
+    };
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,12 +27,20 @@ public class MainActivity extends AppCompatActivity {
 
         // Setup the ViewPager & Adapter
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager_main);
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), this);
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(viewPagerAdapter);
         viewPager.setOffscreenPageLimit(3);
 
         // Setup the TabLayout for the ViewPager
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout_main);
         tabLayout.setupWithViewPager(viewPager);
+        setupTabIcons(tabLayout);
+    }
+
+    private void setupTabIcons(TabLayout tabLayout) {
+        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
+        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
+        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
+        tabLayout.getTabAt(3).setIcon(tabIcons[3]);
     }
 }

@@ -1,6 +1,5 @@
 package com.mobile.mferraco.weddingblitz;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -8,29 +7,25 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.mobile.mferraco.weddingblitz.constants.FragmentConstants;
 import com.mobile.mferraco.weddingblitz.infofragments.CeremonyFragment;
+import com.mobile.mferraco.weddingblitz.infofragments.OverviewFragment;
 import com.mobile.mferraco.weddingblitz.infofragments.ReceptionFragment;
 import com.mobile.mferraco.weddingblitz.infofragments.schedule.ScheduleFragment;
-import com.mobile.mferraco.weddingblitz.infofragments.OverviewFragment;
 
 /**
  * This is the adapter which will provide the fragments to the ViewPager for display.
  */
 
-public class ViewPagerAdapter extends FragmentPagerAdapter {
+class ViewPagerAdapter extends FragmentPagerAdapter {
 
-    private String[] mTabTitles;
+    private static final int NUM_TABS = 4;
 
-    private Context mContext;
-
-    public ViewPagerAdapter(FragmentManager fm, Context context) {
+    ViewPagerAdapter(FragmentManager fm) {
         super(fm);
-        mContext = context;
-        mTabTitles = context.getResources().getStringArray(R.array.fragment_tab_titles);
     }
 
     @Override
     public int getCount() {
-        return mTabTitles.length;
+        return NUM_TABS;
     }
 
     @Override
@@ -48,11 +43,5 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
             default:
                 return OverviewFragment.newInstance(new Bundle());
         }
-    }
-
-    @Override
-    public CharSequence getPageTitle(int position) {
-        // TODO: change this to icons once I have them
-        return mTabTitles[position];
     }
 }
