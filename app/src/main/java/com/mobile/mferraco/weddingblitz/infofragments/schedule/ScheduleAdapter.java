@@ -14,6 +14,8 @@ import com.mobile.mferraco.weddingblitz.models.Event;
 
 public class ScheduleAdapter extends FirebaseRecyclerAdapter<Event, EventViewHolder> {
 
+    private String currentWordDay;
+
     private Context mContext;
 
     public ScheduleAdapter(Class<Event> modelClass, int modelLayout, Class<EventViewHolder> viewHolderClass, DatabaseReference ref, Context context) {
@@ -24,13 +26,18 @@ public class ScheduleAdapter extends FirebaseRecyclerAdapter<Event, EventViewHol
     @Override
     protected void populateViewHolder(EventViewHolder vh, Event event, int position) {
         vh.setTitle(event.getTitle());
-        vh.setDescription(event.getDescription());
 
         // set time on cardview
         String startTime = WeddingDateUtils.getFormattedTimeString(event.getStartTime());
         String endTime = WeddingDateUtils.getFormattedTimeString(event.getEndTime());
         vh.setTime(mContext.getString(R.string.schedule_time_text, startTime, endTime));
 
-        vh.setDay(WeddingDateUtils.getDayFromDate(event.getStartTime()));
+        // TODO: update this logic, would not work if two Sat. events on different saturdays were present (or any other duplicate day of week)
+        String wordDay = WeddingDateUtils.getWordDayFromDate(event.getStartTime());
+        if (currentWordDay == null || !wordDay.equals(currentWordDay)) {
+            currentWordDay = wordDay;
+            vh.setDay(currentWordDay);
+            vh.setDayOfMonth(WeddingDateUtils.getDayOfMonthFromDate(event.getStartTime()));
+        }
     }
 }
