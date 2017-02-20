@@ -15,6 +15,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -132,6 +133,9 @@ public class CeremonyFragment extends DataLoadingFragment implements OnMapReadyC
 
     @Override
     public void onMapReady(GoogleMap map) {
+        UiSettings settings = map.getUiSettings();
+        settings.setScrollGesturesEnabled(false);
+
         mMap = map;
         mMarker = map.addMarker(new MarkerOptions()
                 .position(new LatLng(0, 0)));

@@ -2,15 +2,12 @@ package com.mobile.mferraco.weddingblitz.infofragments.schedule;
 
 import android.content.Context;
 import android.support.annotation.DrawableRes;
-import android.view.View;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.mobile.mferraco.weddingblitz.R;
 import com.mobile.mferraco.weddingblitz.WeddingDateUtils;
 import com.mobile.mferraco.weddingblitz.models.Event;
-
-import java.util.Date;
 
 /**
  * This RecyclerView implementation sets up the schedule of events for the {@link ScheduleFragment}
@@ -47,18 +44,6 @@ public class ScheduleAdapter extends FirebaseRecyclerAdapter<Event, EventViewHol
         }
 
         vh.setTypeIcon(getIconForType(event));
-
-        // set height of container view based on length of event.
-        Date start = WeddingDateUtils.parseDateFromString(event.getStartTime());
-        Date end = WeddingDateUtils.parseDateFromString(event.getEndTime());
-        long hours = WeddingDateUtils.getDiffInHours(start, end);
-
-        int heightOffset = (int) hours * HEIGHT_OFFSET_MULTIPLIER;
-
-        vh.getCardViewContainer().measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
-        int itemHeight = vh.getCardViewContainer().getMeasuredHeight();
-
-        vh.getCardViewContainer().getLayoutParams().height = itemHeight + heightOffset;
     }
 
     @DrawableRes
