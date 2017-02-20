@@ -30,5 +30,7 @@ public class ScheduleAdapter extends FirebaseRecyclerAdapter<Event, EventViewHol
         String startTime = WeddingDateUtils.getFormattedTimeString(event.getStartTime());
         String endTime = WeddingDateUtils.getFormattedTimeString(event.getEndTime());
         vh.setTime(mContext.getString(R.string.schedule_time_text, startTime, endTime));
+
+        vh.setDay(WeddingDateUtils.getDayFromDate(event.getStartTime()));
     }
 }

@@ -26,6 +26,9 @@ public final class WeddingDateUtils {
     /* The format to display times in the app */
     private static final SimpleDateFormat timeDateFormat = new SimpleDateFormat("h:mm a", Locale.US);
 
+    /* The format to display a day of the week in the app */
+    private static final SimpleDateFormat dayOfWeekFormat = new SimpleDateFormat("EEEE", Locale.US);
+
     /**
      * The number of days from today until the date passed in.
      *
@@ -66,5 +69,9 @@ public final class WeddingDateUtils {
 
     public static String getFormattedTimeString(String dateString) {
         return timeDateFormat.format(parseDateFromString(dateString));
+    }
+
+    public static String getDayFromDate(String dateString) {
+        return dayOfWeekFormat.format(parseDateFromString(dateString));
     }
 }
