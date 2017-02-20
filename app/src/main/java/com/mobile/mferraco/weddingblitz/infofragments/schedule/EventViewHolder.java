@@ -1,9 +1,11 @@
 package com.mobile.mferraco.weddingblitz.infofragments.schedule;
 
 import android.support.annotation.DrawableRes;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mobile.mferraco.weddingblitz.R;
@@ -19,6 +21,8 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
     private TextView vDay;
     private TextView vDayOfMonth;
     private ImageView vTypeIcon;
+    private RelativeLayout vCardViewContainer;
+    private CardView vCardView;
 
     public EventViewHolder(View v) {
         super(v);
@@ -29,6 +33,7 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
         vDay = (TextView) v.findViewById(R.id.event_day_textview);
         vDayOfMonth = (TextView) v.findViewById(R.id.event_date_textview);
         vTypeIcon = (ImageView) v.findViewById(R.id.event_type_icon_imageview);
+        vCardViewContainer = (RelativeLayout) v.findViewById(R.id.cardview_container);
     }
 
     public void setTitle(String title) {
@@ -49,5 +54,9 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
 
     public void setTypeIcon(@DrawableRes int imageResource) {
         vTypeIcon.setImageResource(imageResource);
+    }
+
+    public RelativeLayout getCardViewContainer() {
+        return vCardViewContainer;
     }
 }

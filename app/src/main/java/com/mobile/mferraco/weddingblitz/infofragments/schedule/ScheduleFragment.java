@@ -47,6 +47,5 @@ public class ScheduleFragment extends Fragment {
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("weddings/0/schedule");
         recyclerView.setAdapter(new ScheduleAdapter(Event.class, R.layout.cardview_event, EventViewHolder.class, ref, getContext()));
-
     }
 }

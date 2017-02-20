@@ -80,6 +80,10 @@ public final class WeddingDateUtils {
 
     public static String getDayOfMonthFromDate(String dateString) {
         return dayOfMonthFormat.format(parseDateFromString(dateString));
+    }
 
+    public static long getDiffInHours(Date startDate, Date endDate) {
+        long diff = endDate.getTime() - startDate.getTime();
+        return diff / 1000 / 60 / 60;
     }
 }
