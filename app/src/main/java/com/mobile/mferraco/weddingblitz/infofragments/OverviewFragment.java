@@ -2,6 +2,7 @@ package com.mobile.mferraco.weddingblitz.infofragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,6 +64,9 @@ public class OverviewFragment extends DataLoadingFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        TextView attributionTextView = (TextView) view.findViewById(R.id.attribution_textview);
+        attributionTextView.setMovementMethod(LinkMovementMethod.getInstance());
 
         // Get a reference to the wedding
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
