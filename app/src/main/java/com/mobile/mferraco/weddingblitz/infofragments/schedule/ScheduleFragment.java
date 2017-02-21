@@ -36,7 +36,7 @@ public class ScheduleFragment extends DataLoadingFragment {
 
         // inflate content into DataLoadingFragment's content layout
         getActivity().getLayoutInflater().inflate(R.layout.fragment_schedule, getContentLayout());
-        
+
         return view;
     }
 

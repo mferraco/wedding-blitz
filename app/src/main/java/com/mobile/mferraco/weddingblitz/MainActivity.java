@@ -6,6 +6,8 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
+import com.google.firebase.database.FirebaseDatabase;
+
 /**
  * The main activity which holds the View Pager, and therefore all of the fragments that can be
  * tabbed through
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
 
         // Setup the ViewPager & Adapter
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager_main);
