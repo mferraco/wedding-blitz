@@ -15,7 +15,7 @@ import com.mobile.mferraco.weddingblitz.R;
  * A fragment which contains the logic for showing a progress bar when data is loading.
  */
 
-public class DataLoadingFragment extends Fragment{
+public class DataLoadingFragment extends Fragment implements DataLoadingInterface {
 
     private ProgressBar mProgressBar;
     private FrameLayout mContentLayout;

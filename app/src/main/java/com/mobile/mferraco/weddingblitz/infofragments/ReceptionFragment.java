@@ -22,8 +22,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.mobile.mferraco.weddingblitz.FirebaseUtils;
 import com.mobile.mferraco.weddingblitz.R;
 import com.mobile.mferraco.weddingblitz.models.Wedding;
 import com.squareup.picasso.Callback;
@@ -74,8 +74,7 @@ public class ReceptionFragment extends DataLoadingFragment implements OnMapReady
         super.onViewCreated(view, savedInstanceState);
 
         // Get a reference to the wedding
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("weddings/0");
+        DatabaseReference ref = FirebaseUtils.getDatabase().getReference("weddings/0");
 
         // Attach a listener to read the data at the wedding reference
         ref.addValueEventListener(new ValueEventListener() {
@@ -153,6 +152,8 @@ public class ReceptionFragment extends DataLoadingFragment implements OnMapReady
     public void onResume() {
         super.onResume();
         mMapView.onResume();
+
+        FirebaseUtils.detectOffline(mImageView, R.drawable.reception_party, this);
     }
 
     @Override

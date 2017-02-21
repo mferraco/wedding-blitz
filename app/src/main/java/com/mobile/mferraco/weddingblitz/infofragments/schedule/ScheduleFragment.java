@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.mobile.mferraco.weddingblitz.FirebaseUtils;
 import com.mobile.mferraco.weddingblitz.R;
 import com.mobile.mferraco.weddingblitz.infofragments.DataLoadingFragment;
 import com.mobile.mferraco.weddingblitz.models.Event;
@@ -51,8 +51,7 @@ public class ScheduleFragment extends DataLoadingFragment {
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(llm);
 
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("weddings/0/schedule");
+        DatabaseReference ref = FirebaseUtils.getDatabase().getReference("weddings/0/schedule");
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
