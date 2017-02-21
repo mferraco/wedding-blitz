@@ -38,9 +38,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupTabIcons(TabLayout tabLayout) {
-        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
-        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
-        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
-        tabLayout.getTabAt(3).setIcon(tabIcons[3]);
+        String[] tabTitles = getResources().getStringArray(R.array.fragment_tab_titles);
+
+        for (int i = 0; i < tabTitles.length; i++) {
+            TabLayout.Tab tab = tabLayout.getTabAt(i);
+            if (tab != null) {
+                tab.setIcon(tabIcons[i]);
+                tab.setContentDescription("Tab " + (i + 1) + " of " + tabTitles.length + ". " + tabTitles[i]);
+            }
+        }
     }
 }
