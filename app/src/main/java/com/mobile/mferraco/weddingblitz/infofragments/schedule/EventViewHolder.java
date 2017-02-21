@@ -39,8 +39,16 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
         vTime.setText(time);
     }
 
+    public void setTimeAccessibility(String cd) {
+        vTime.setContentDescription(cd);
+    }
+
     public void setDay(String day) {
         vDay.setText(day);
+    }
+
+    public void setDayAccessibility(String cd) {
+        vDay.setContentDescription(cd);
     }
 
     public void setDayOfMonth(String dayOfMonth) {

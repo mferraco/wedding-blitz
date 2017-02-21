@@ -24,6 +24,7 @@
 
     <!-- Schedule Fragment -->
     <string name="schedule_time_text">%1$s - %2$s</string>
+    <string name="scheduled_time_accessibility_text">%1$s to %2$s</string>
     <string name="attribution_text">Icons courtesy of <a href="https://icons8.com/">Icons 8</a>.</string>
 
 </resources>

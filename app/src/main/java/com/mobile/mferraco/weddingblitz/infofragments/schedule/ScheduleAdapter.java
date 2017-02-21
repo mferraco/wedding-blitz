@@ -34,12 +34,15 @@ public class ScheduleAdapter extends FirebaseRecyclerAdapter<Event, EventViewHol
         String startTime = WeddingDateUtils.getFormattedTimeString(event.getStartTime());
         String endTime = WeddingDateUtils.getFormattedTimeString(event.getEndTime());
         vh.setTime(mContext.getString(R.string.schedule_time_text, startTime, endTime));
+        vh.setTimeAccessibility(mContext.getString(R.string.scheduled_time_accessibility_text, startTime, endTime));
 
-        // TODO: update this logic, would not work if two Sat. events on different saturdays were present (or any other duplicate day of week)
-        String wordDay = WeddingDateUtils.getWordDayFromDate(event.getStartTime());
+        // set date in left column
+        String wordDay = WeddingDateUtils.getAbbreviatedWordDayFromDate(event.getStartTime());
         if (currentWordDay == null || !wordDay.equals(currentWordDay)) {
             currentWordDay = wordDay;
             vh.setDay(currentWordDay);
+            vh.setDayAccessibility(WeddingDateUtils.getWordDayFromDate(event.getStartTime()));
+
             vh.setDayOfMonth(WeddingDateUtils.getDayOfMonthFromDate(event.getStartTime()));
         }
 
