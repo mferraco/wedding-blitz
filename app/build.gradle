@@ -5,7 +5,7 @@ android {
         config {
             keyAlias 'WeddingBlitz'
             keyPassword 'WeddingBlitzKey2017'
-            storeFile file('/Users/mferraco/Documents/AndroidNanodegree/WeddingBlitz/weddingblitz.jks')
+            storeFile file('$rootDir/weddingblitz.jks')
             storePassword 'WeddingBlitz2017'
         }
     }
