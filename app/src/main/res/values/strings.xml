@@ -14,17 +14,22 @@
         <item name="schedule_tab_title">Schedule</item>
     </string-array>
 
-
     <!-- OVERVIEW FRAGMENT -->
     <string name="two_data_point_string">%1$s and %2$s</string>
     <string name="countdown_text">%1$s Days!</string>
+    <string name="cd_overview_image">overview image</string>
 
     <!-- Ceremony Fragment -->
     <string name="fab_content_description">Get directions.</string>
+    <string name="cd_ceremony_image">ceremony image</string>
+
+    <!-- Reception Fragment -->
+    <string name="cd_reception_image">reception image</string>
 
     <!-- Schedule Fragment -->
     <string name="schedule_time_text">%1$s - %2$s</string>
     <string name="scheduled_time_accessibility_text">%1$s to %2$s</string>
     <string name="attribution_text">Icons courtesy of <a href="https://icons8.com/">Icons 8</a>.</string>
+    <string name="cd_schedule_icon">icon</string>
 
 </resources>

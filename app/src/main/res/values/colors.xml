@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#1A237E</color>
     <color name="colorAccent">#F8BBD0</color>
+
+    <!-- Image Scrim -->
+    <color name="scrimStartColor">#00000000</color>
+    <color name="scrimCenterColor">#00000000</color>
+    <color name="scrimEndColor">#CC000000</color>
 </resources>
